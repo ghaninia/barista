@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('variants', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
+        });
+
+        Schema::table('variants', function (Blueprint $table) {
+            $table->foreignId('variant_id')->constrained('variants')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

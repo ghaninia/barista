@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
+            $table->morphs('fileable');
+            $table->text('url') ;
+            $table->string("usage")->nullable();
+            $table->string("disk")->nullable();
+            $table->string("format")->nullable();
+            $table->string("size")->nullable() ;
             $table->timestamps();
         });
     }

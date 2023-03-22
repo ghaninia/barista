@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('product_variations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("product_id")->constrained('products')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('branch_id')->constrained('branches')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->integer("quantity")->default(0);
+            $table->boolean("has_limit")->default(FALSE);
+            $table->decimal('price', 8, 2);
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('family');
-            $table->string("gendor")->nullable();
+            $table->string("gender")->nullable();
             $table->string('mobile')->unique();
             $table->string('password');
             $table->rememberToken();

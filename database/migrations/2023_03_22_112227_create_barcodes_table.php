@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('barcodes', function (Blueprint $table) {
             $table->id();
+            $table->morphs('barcodeable');
+            $table->string('barcode');
             $table->timestamps();
         });
     }

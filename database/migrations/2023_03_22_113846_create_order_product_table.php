@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('order_product', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('order_id')->constrained('orders')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('product_variation_variant_id')->constrained('product_variation_variant')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('product_variation_id')->constrained('product_variations')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained('products')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('variant_id')->constrained('variants')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->integer('quantity');
+            $table->decimal('fee', 8, 2);
+            $table->decimal('amount', 8, 2);
             $table->timestamps();
         });
     }
