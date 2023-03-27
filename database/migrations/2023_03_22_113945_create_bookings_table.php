@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->string("fullname");
+            $table->string("was_used");
+            $table->string("mobile");
+            $table->integer("capacity");
+            $table->timestamp("reservation_time");
             $table->timestamps();
         });
     }

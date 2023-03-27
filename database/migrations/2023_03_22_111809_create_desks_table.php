@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('desks', function (Blueprint $table) {
             $table->id();
-            $table->integer("no");
+            $table->integer("no_desk");
             $table->integer("capacity");
             $table->foreignId("branch_id")->constrained("branches")->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
