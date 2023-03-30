@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('tokens', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string("");
+            $table->morphs('tokenable');
+            $table->string("token");
             $table->timestamp('expired_at');
             $table->timestamps();
         });

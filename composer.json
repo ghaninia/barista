@@ -1,5 +1,5 @@
 {
-    "name": "laravel/laravel",
+    "name": "barista",
     "type": "project",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
@@ -9,7 +9,8 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "tymon/jwt-auth": "^2.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -23,7 +24,6 @@
     "autoload": {
         "psr-4": {
             "Src\\": "src/",
-            "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
     },
