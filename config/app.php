@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fa',
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'fa',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'fa_IR',
 
     /*
     |--------------------------------------------------------------------------
@@ -186,13 +186,14 @@ return [
          * Package Service Providers...
          */
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        \Src\Auth\Application\Providers\AuthServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
         \Src\Common\Infrastructure\Laravel\Providers\AppServiceProvider::class,
         \Src\Common\Infrastructure\Laravel\Providers\AuthServiceProvider::class,
-        // \Src\Common\Infrastructure\Laravel\Providers\BroadcastServiceProvider::class,
+         \Src\Common\Infrastructure\Laravel\Providers\BroadcastServiceProvider::class,
         \Src\Common\Infrastructure\Laravel\Providers\EventServiceProvider::class,
         \Src\Common\Infrastructure\Laravel\Providers\RouteServiceProvider::class,
 

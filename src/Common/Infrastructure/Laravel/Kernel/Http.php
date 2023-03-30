@@ -35,6 +35,7 @@ class Http extends HttpKernel
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \Src\Common\Infrastructure\Laravel\Middleware\VerifyCsrfToken::class,
+            \Src\Common\Infrastructure\Laravel\Middleware\JsonMiddleware::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -48,7 +49,7 @@ class Http extends HttpKernel
     /**
      * The application's middleware aliases.
      *
-     * Aliases may be used to conveniently assign middleware to routes and groups.
+     * Aliases may be used to conveniently assign middleware to Routes and groups.
      *
      * @var array<string, class-string|string>
      */
