@@ -12,5 +12,10 @@ class UserServiceProvider extends ServiceProvider
             \Src\Agenda\Token\Domain\Repositories\TokenRepositoryInterface::class,
             \Src\Agenda\Token\Application\Repositories\TokenRepository::class
         );
+
+        $this->app->bind(
+            \Src\Agenda\Token\Domain\Services\TokenServiceInterface::class,
+            \Src\Agenda\Token\Application\Repositories\TokenRepository::class
+        );
     }
 }

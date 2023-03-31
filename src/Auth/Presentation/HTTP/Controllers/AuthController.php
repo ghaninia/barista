@@ -3,16 +3,16 @@
 namespace Src\Auth\Presentation\HTTP\Controllers;
 
 use Src\Auth\Presentation\HTTP\Requests\SsoRequest;
+use Src\Auth\Presentation\HTTP\Requests\SsoVerificationRequest;
 use Src\Common\Infrastructure\Laravel\Controller;
 
 class AuthController extends Controller
 {
-    /**
-     * @param SsoRequest $request
-     * @return array
-     */
-    public function sso(SsoRequest $request)
+    public function ssoRequest(SsoRequest $request)
     {
-        return $request->all();
+    }
+
+    public function ssoVerification(SsoVerificationRequest $request)
+    {
     }
 }
