@@ -9,6 +9,10 @@ use Illuminate\Support\Collection;
 use Laravel\Sanctum\HasApiTokens;
 use Src\Agenda\User\Domain\Factories\UserEloquentModelFactory;
 
+/**
+ * @method whereMobile(string $mobile)
+ * @method whereId(int $userId)
+ */
 class UserEloquentModel extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;

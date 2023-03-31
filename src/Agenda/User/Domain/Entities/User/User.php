@@ -26,7 +26,7 @@ class User extends AggregateRoot
             'isActive' => $this->isActive,
             'firstName' => $this->firstName,
             'lastName' => $this->lastName,
-            'gender' => $this->gender->value,
+            'gender' => $this->gender,
             'mobile' => $this->mobile,
         ];
     }

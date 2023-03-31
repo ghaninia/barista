@@ -4,7 +4,7 @@ namespace Src\Agenda\Token\Application\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class UserServiceProvider extends ServiceProvider
+class TokenServiceProvider extends ServiceProvider
 {
     public function register()
     {

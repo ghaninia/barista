@@ -10,6 +10,6 @@ Route::prefix("api/sso")
     ->group(function () {
 
         Route::post("request", [AuthController::class, "ssoRequest"])->name("request");
-        Route::post("verfication", [AuthController::class, "ssoVerification"])->name("verfication");
+        Route::post("verification", [AuthController::class, "ssoVerification"])->name("verfication");
 
 });
