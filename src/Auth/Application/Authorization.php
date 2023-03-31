@@ -65,12 +65,12 @@ class Authorization
     }
 
     /**
-     * @param string|array $abilities
+     * @param PermissionInterface|array $abilities
      * @return $this
      */
-    public function setAbilities(string|array $abilities)
+    public function setAbilities(PermissionInterface|array $abilities)
     {
-        $this->abilities = is_string($abilities)? [$abilities]: $abilities;
+        $this->abilities = is_array($abilities)? $abilities: [$abilities];
         return $this;
     }
 
