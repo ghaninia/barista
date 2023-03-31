@@ -2,9 +2,11 @@
 
 namespace Src\Agenda\Token\Application\UseCases\Commands;
 
-use Src\Agenda\Token\Domain\Entities\Constants\EnumTypeToken;
 use Src\Agenda\Token\Domain\Repositories\TokenRepositoryInterface;
+use Src\Agenda\Token\Domain\Entities\Constants\EnumTypeToken;
+use Src\Agenda\Token\Domain\Policies\Enums\EnumTokenPolicy;
 use Src\Agenda\Token\Application\DTO\CreateTokenDTO;
+use Src\Agenda\Token\Domain\Policies\TokenPolicy;
 use Src\Agenda\User\Domain\Entities\User\User;
 use Src\Common\Domain\CommandInterface;
 
@@ -23,6 +25,7 @@ class CreateTokenCommand implements CommandInterface
 
     public function execute()
     {
+        authorize(EnumTokenPolicy::TOKEN_STORE, TokenPolicy::class);
         $this->repository->create(
             (new CreateTokenDTO())
                 ->setToken($this->token)

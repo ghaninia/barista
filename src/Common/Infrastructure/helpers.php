@@ -1,16 +1,13 @@
 <?php
 
-/**  */
-
-use Src\Common\Domain\Exceptions\UnauthorizedUserException;
 
 if (! function_exists('authorize')) {
-    /* @throws UnauthorizedUserException */
-    function authorize($ability, $policy, $arguments = []): bool
-    {
-        if ($policy::{$ability}(...$arguments)) {
-            return true;
-        }
-        throw new UnauthorizedUserException();
+
+    function authorize(string|array $abilities,string $policy,bool $exact = false): bool {
+        \Src\Auth\Application\Authorization::getInstance()
+            ->setExact($exact)
+            ->setAbilities($abilities)
+            ->setPolicy($policy)
+            ->execute();
     }
 }
