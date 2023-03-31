@@ -1,9 +1,11 @@
 <?php
 
 
+use Src\Common\Domain\PermissionInterface;
+
 if (! function_exists('authorize')) {
 
-    function authorize(string|array $abilities,string $policy,bool $exact = false): bool {
+    function authorize(PermissionInterface|array $abilities,string $policy,bool $exact = false): bool {
         \Src\Auth\Application\Authorization::getInstance()
             ->setExact($exact)
             ->setAbilities($abilities)
