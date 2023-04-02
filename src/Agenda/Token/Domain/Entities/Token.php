@@ -20,7 +20,7 @@ class Token extends AggregateRoot
     {
         return [
             'id' => $this->id,
-            'user' => $this->user,
+            'user_id' => $this->user->id,
             'type' => $this->type,
             'token' => $this->token,
             'expiredAt' => $this->expiredAt
