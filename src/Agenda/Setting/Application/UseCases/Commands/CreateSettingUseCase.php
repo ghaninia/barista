@@ -9,7 +9,7 @@ use Src\Agenda\Setting\Domain\Repositories\SettingRepositoryInterface;
 use Src\Agenda\User\Domain\Entities\User\User;
 use Src\Shared\Domain\CommandInterface;
 
-class NewSettingUseCase implements CommandInterface
+class CreateSettingUseCase implements CommandInterface
 {
     private SettingRepositoryInterface $repository;
 
@@ -23,7 +23,7 @@ class NewSettingUseCase implements CommandInterface
 
     public function execute()
     {
-        $setting = $this->repository->create(
+        return $this->repository->create(
             (new CreateSettingDTO)
                 ->setKey($this->key)
                 ->setValue($this->value)
@@ -32,7 +32,5 @@ class NewSettingUseCase implements CommandInterface
                 ->setCreatedAt(new \DateTime())
                 ->setUpdatedAt(new \DateTime())
         );
-
-        return SettingMapper::fromEloquent($setting);
     }
 }

@@ -38,5 +38,4 @@ class AuthServiceProvider extends ServiceProvider
         $routeFiles = glob(sprintf("%s/*.php", $routePath));
         array_walk($routeFiles, fn($route) => $this->loadRoutesFrom($route));
     }
-
 }

@@ -38,12 +38,12 @@ class SettingEloquentModel extends Model
     }
     public function updateBy()
     {
-        return $this->belongsTo(UserEloquentModel::class, 'user_id');
+        return $this->belongsTo(UserEloquentModel::class, 'update_by');
     }
 
     public function createBy()
     {
-        return $this->belongsTo(UserEloquentModel::class, 'user_id');
+        return $this->belongsTo(UserEloquentModel::class, 'create_by');
     }
 
     public function getId()

@@ -7,7 +7,7 @@ use Src\Agenda\User\Domain\Entities\User\User;
 
 class CreateSettingDTO
 {
-    private EnumKeySetting $key;
+    private string $key;
     private mixed $value;
     private User $updateBy;
     private User $createBy;
@@ -51,20 +51,20 @@ class CreateSettingDTO
     }
 
     /**
-     * @return \Src\Agenda\Setting\Domain\Entities\Constants\EnumKeySetting
+     * @return string
      */
-    public function getKey(): EnumKeySetting
+    public function getKey(): string
     {
         return $this->key;
     }
 
     /**
-     * @param \Src\Agenda\Setting\Domain\Entities\Constants\EnumKeySetting $key
+     * @param EnumKeySetting $key
      * @return $this
      */
     public function setKey(EnumKeySetting $key): self
     {
-        $this->key = $key;
+        $this->key = $key->value;
         return $this;
     }
 
