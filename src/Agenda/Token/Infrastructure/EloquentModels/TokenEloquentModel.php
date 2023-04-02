@@ -43,7 +43,7 @@ class TokenEloquentModel extends Model
         return $this->id;
     }
 
-    /** @return User */
+    /** @return UserEloquentModel */
     public function getUser(): UserEloquentModel
     {
         return $this->user;

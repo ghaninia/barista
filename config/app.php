@@ -187,15 +187,16 @@ return [
          */
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         \Src\Auth\Application\Providers\AuthServiceProvider::class,
+        \Src\Agenda\Token\Application\Providers\TokenServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-        \Src\Common\Infrastructure\Laravel\Providers\AppServiceProvider::class,
-        \Src\Common\Infrastructure\Laravel\Providers\AuthServiceProvider::class,
-         \Src\Common\Infrastructure\Laravel\Providers\BroadcastServiceProvider::class,
-        \Src\Common\Infrastructure\Laravel\Providers\EventServiceProvider::class,
-        \Src\Common\Infrastructure\Laravel\Providers\RouteServiceProvider::class,
+        \Src\Shared\Infrastructure\Laravel\Providers\AppServiceProvider::class,
+        \Src\Shared\Infrastructure\Laravel\Providers\AuthServiceProvider::class,
+         \Src\Shared\Infrastructure\Laravel\Providers\BroadcastServiceProvider::class,
+        \Src\Shared\Infrastructure\Laravel\Providers\EventServiceProvider::class,
+        \Src\Shared\Infrastructure\Laravel\Providers\RouteServiceProvider::class,
 
     ],
 

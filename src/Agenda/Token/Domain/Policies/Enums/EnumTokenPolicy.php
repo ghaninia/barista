@@ -2,7 +2,7 @@
 
 namespace Src\Agenda\Token\Domain\Policies\Enums;
 
-use Src\Common\Domain\PermissionInterface;
+use Src\Shared\Domain\PermissionInterface;
 
 enum EnumTokenPolicy: string implements PermissionInterface
 {

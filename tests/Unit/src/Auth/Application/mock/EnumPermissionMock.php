@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\src\Auth\Application\mock;
 
-use Src\Common\Domain\PermissionInterface;
+use Src\Shared\Domain\PermissionInterface;
 
 enum EnumPermissionMock: string implements PermissionInterface
 {

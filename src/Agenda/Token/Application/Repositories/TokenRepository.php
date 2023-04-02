@@ -2,7 +2,7 @@
 
 namespace Src\Agenda\Token\Application\Repositories;
 
-use Src\Agenda\User\Domain\Entities\Token;
+use Src\Agenda\Token\Domain\Entities\Token;
 use Src\Agenda\Token\Application\DTO\CreateTokenDTO;
 use Src\Agenda\Token\Application\DTO\ExistsTokenDTO;
 use Src\Agenda\Token\Application\Mappers\TokenMapper;

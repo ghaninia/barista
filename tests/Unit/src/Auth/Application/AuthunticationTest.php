@@ -4,7 +4,7 @@ namespace Tests\Unit\src\Auth\Application;
 
 use Tests\TestCase;
 use Src\Auth\Application\Authorization;
-use Src\Common\Domain\Exceptions\UnauthorizedUserException;
+use Src\Shared\Domain\Exceptions\UnauthorizedUserException;
 use Tests\Unit\src\Auth\Application\mock\EnumPermissionMock;
 use Tests\Unit\src\Auth\Application\mock\MockPolicy;
 

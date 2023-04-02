@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\src\Auth\Application\mock;
 
-use Src\Common\Domain\PolicyInterface;
+use Src\Shared\Domain\PolicyInterface;
 
 class MockPolicy implements PolicyInterface
 {

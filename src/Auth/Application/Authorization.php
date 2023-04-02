@@ -4,9 +4,9 @@ namespace Src\Auth\Application;
 
 use Src\Auth\Application\Exceptions\MethodPolicyNotFound;
 use Src\Auth\Application\Exceptions\PolicyNotFoundException;
-use Src\Common\Domain\Exceptions\UnauthorizedUserException;
-use Src\Common\Domain\PermissionInterface;
-use Src\Common\Domain\PolicyInterface;
+use Src\Shared\Domain\Exceptions\UnauthorizedUserException;
+use Src\Shared\Domain\PermissionInterface;
+use Src\Shared\Domain\PolicyInterface;
 
 class Authorization
 {

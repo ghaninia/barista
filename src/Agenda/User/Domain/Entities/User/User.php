@@ -6,7 +6,7 @@ use Src\Agenda\User\Domain\Entities\User\ValueObjects\FirstName;
 use Src\Agenda\User\Domain\Entities\User\ValueObjects\Gender;
 use Src\Agenda\User\Domain\Entities\User\ValueObjects\LastName;
 use Src\Agenda\User\Domain\Entities\User\ValueObjects\Mobile;
-use Src\Common\Domain\AggregateRoot;
+use Src\Shared\Domain\AggregateRoot;
 
 class User extends AggregateRoot
 {

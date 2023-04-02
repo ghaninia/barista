@@ -4,7 +4,7 @@ namespace Src\Agenda\User\Domain\Entities\User\ValueObjects;
 
 use Src\Agenda\User\Domain\Execptions\PasswordsDoNotMatchException;
 use Src\Agenda\User\Domain\Execptions\PasswordTooShortException;
-use Src\Common\Domain\ValueObject;
+use Src\Shared\Domain\ValueObject;
 
 class Password extends ValueObject
 {

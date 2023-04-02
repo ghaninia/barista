@@ -3,7 +3,7 @@
 namespace Src\Agenda\Token\Domain\Policies;
 
 use Src\Agenda\Token\Domain\Policies\Enums\EnumTokenPolicy;
-use Src\Common\Domain\PolicyInterface;
+use Src\Shared\Domain\PolicyInterface;
 
 class TokenPolicy implements PolicyInterface
 {

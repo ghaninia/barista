@@ -2,7 +2,7 @@
 
 namespace Src\Agenda\User\Domain\Entities\User\ValueObjects;
 
-use Src\Common\Domain\ValueObject;
+use Src\Shared\Domain\ValueObject;
 
 class LastName extends ValueObject
 {

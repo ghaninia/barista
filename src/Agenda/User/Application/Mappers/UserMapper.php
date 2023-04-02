@@ -3,6 +3,10 @@
 namespace Src\Agenda\User\Application\Mappers;
 
 use Src\Agenda\User\Domain\Entities\User\User;
+use Src\Agenda\User\Domain\Entities\User\ValueObjects\FirstName;
+use Src\Agenda\User\Domain\Entities\User\ValueObjects\Gender;
+use Src\Agenda\User\Domain\Entities\User\ValueObjects\LastName;
+use Src\Agenda\User\Domain\Entities\User\ValueObjects\Mobile;
 use Src\Agenda\User\Infrastructure\EloquentModels\UserEloquentModel;
 
 class UserMapper
@@ -11,10 +15,10 @@ class UserMapper
     {
         return new User(
             $model->getId(),
-            $model->getFirstName(),
-            $model->getLastName(),
-            $model->getGender(),
-            $model->getMobile(),
+            new FirstName($model->getFirstName()),
+            new LastName($model->getLastName()),
+            new Gender($model->getGender()),
+            new Mobile($model->getMobile()),
             $model->getIsActive()
         );
     }

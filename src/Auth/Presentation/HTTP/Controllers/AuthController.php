@@ -4,7 +4,7 @@ namespace Src\Auth\Presentation\HTTP\Controllers;
 
 use Src\Auth\Presentation\HTTP\Requests\SsoRequest;
 use Src\Auth\Presentation\HTTP\Requests\SsoVerificationRequest;
-use Src\Common\Infrastructure\Laravel\Controller;
+use Src\Shared\Infrastructure\Laravel\Controller;
 
 class AuthController extends Controller
 {

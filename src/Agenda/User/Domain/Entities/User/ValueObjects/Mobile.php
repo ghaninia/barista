@@ -2,8 +2,8 @@
 
 namespace Src\Agenda\User\Domain\Entities\User\ValueObjects;
 
-use Src\Common\Domain\Exceptions\IncorrectMobileFormatException;
-use Src\Common\Domain\ValueObject;
+use Src\Shared\Domain\Exceptions\IncorrectMobileFormatException;
+use Src\Shared\Domain\ValueObject;
 
 class Mobile extends ValueObject
 {

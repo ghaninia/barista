@@ -3,7 +3,7 @@
 namespace Src\Auth\Presentation\HTTP\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Src\Common\Infrastructure\Laravel\Rules\MobileRule;
+use Src\Shared\Infrastructure\Laravel\Rules\MobileRule;
 
 class SsoRequest extends FormRequest
 {

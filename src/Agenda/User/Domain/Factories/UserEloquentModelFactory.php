@@ -22,7 +22,7 @@ class UserEloquentModelFactory extends Factory
         return [
             'firstname' => fake()->firstName(),
             'lastname' => fake()->lastName(),
-            'gender' => array_rand([EnumUserGender::MALE, EnumUserGender::FEMALE]),
+            'gender' => EnumUserGender::MALE->value,
             'mobile' => fake()->numerify("09#########"),
             'is_active' => fake()->boolean(),
             'password' => bcrypt('secret'),

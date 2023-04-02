@@ -31,6 +31,7 @@ class PermissionEloquentModel extends Model
     {
         return new PermissionEloquentModelFactory();
     }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
