@@ -2,19 +2,19 @@
 
 namespace Tests\Unit\src\Agenda\Setting\Application\UseCases;
 
-use Src\Agenda\Setting\Application\UseCases\Queries\FindSettingByKeyUseCase;
+use Src\Agenda\Setting\Application\UseCases\Queries\GetAllSettingsUseCase;
 use Src\Agenda\Setting\Domain\Entities\Constants\EnumKeySetting;
 use Src\Agenda\Setting\Domain\Entities\Setting;
 use Src\Agenda\Setting\Infrastructure\EloquentModels\SettingEloquentModel;
 use Src\Agenda\User\Infrastructure\EloquentModels\UserEloquentModel;
 use Tests\TestCase;
 
-class FindSettingByKeyTest extends TestCase
+class GetAllSettingsTest extends TestCase
 {
     /** @test */
-    public function findSettingByKeyUseCase()
+    public function getAllSettingsUseCase()
     {
-        $key = EnumKeySetting::AUTHENTICATION_TOKEN_EXPIRATION_TIME;
+        $key  = EnumKeySetting::AUTHENTICATION_TOKEN_EXPIRATION_TIME;
         $createBy = UserEloquentModel::factory()->create();
         $setting = SettingEloquentModel::factory()
             ->for($createBy, 'updateBy')
@@ -25,11 +25,10 @@ class FindSettingByKeyTest extends TestCase
             ])
             ->create();
 
-        /** @var Setting $result */
-        $result = new FindSettingByKeyUseCase($key);
+        $result = new GetAllSettingsUseCase();
         $result = $result->handle();
-        $this->assertInstanceOf(Setting::class, $result);
-        $this->assertSame($result->id, $setting->id);
-        $this->assertSame($result->key, $key);
+
+        $this->assertEquals(1, count($result));
+        $this->assertInstanceOf(Setting::class, $result[0]);
     }
 }

@@ -10,6 +10,7 @@ use Src\Agenda\Setting\Domain\Entities\Setting;
 
 interface SettingRepositoryInterface
 {
+    public function getAll(): array;
     public function updateByKey(UpdateSettingDTO $dto): bool;
     public function create(CreateSettingDTO $dto): Setting;
     public function findByKey(FindSettingByKeyDTO $dto): ?Setting;

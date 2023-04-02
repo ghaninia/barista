@@ -13,6 +13,21 @@ use Src\Agenda\Setting\Infrastructure\EloquentModels\SettingEloquentModel;
 
 class SettingRepository implements SettingRepositoryInterface
 {
+
+    /**
+     * @return Setting[]
+     */
+    public function getAll(): array
+    {
+        return SettingEloquentModel::query()
+            ->with(['updateBy', 'createBy'])
+            ->get()
+            ->map(function ($setting) {
+                return SettingMapper::fromEloquent($setting);
+            })
+            ->toArray();
+    }
+
     public function updateByKey(UpdateSettingDTO $dto): bool
     {
         return SettingEloquentModel::query()

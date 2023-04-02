@@ -9,7 +9,6 @@ use Src\Agenda\User\Domain\Entities\User\User;
 
 class SettingService implements SettingServiceInterface
 {
-
     /**
      * @param User $user
      * @param array<string, mixed> $keyValues

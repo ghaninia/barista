@@ -26,8 +26,8 @@ class CreateSettingTest extends TestCase
         $this->assertDatabaseHas('settings', [
             'id' => $result->id,
             'key' => $result->key,
-            'create_by' => $result->createById,
-            'update_by' => $result->updateById,
+            'create_by' => $result->createBy->id,
+            'update_by' => $result->updateBy->id,
             'value' => serialize($value)
         ]);
     }
