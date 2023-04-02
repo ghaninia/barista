@@ -25,6 +25,11 @@ class SettingEloquentModel extends Model
         'value'
     ];
 
+    protected $with = [
+        'updateBy',
+        'createBy',
+    ];
+
     protected $casts = [
         'value' => SettingValueCast::class
     ];
@@ -38,12 +43,12 @@ class SettingEloquentModel extends Model
     }
     public function updateBy()
     {
-        return $this->belongsTo(UserEloquentModel::class, 'user_id');
+        return $this->belongsTo(UserEloquentModel::class, 'update_by');
     }
 
     public function createBy()
     {
-        return $this->belongsTo(UserEloquentModel::class, 'user_id');
+        return $this->belongsTo(UserEloquentModel::class, 'create_by');
     }
 
     public function getId()
@@ -79,5 +84,15 @@ class SettingEloquentModel extends Model
     public function getUpdatedAt()
     {
         return $this->updated_at;
+    }
+
+    public function getUpdateBy()
+    {
+        return $this->updateBy;
+    }
+
+    public function getCreateBy()
+    {
+        return $this->createBy;
     }
 }

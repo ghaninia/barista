@@ -188,6 +188,7 @@ return [
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         \Src\Auth\Application\Providers\AuthServiceProvider::class,
         \Src\Agenda\Token\Application\Providers\TokenServiceProvider::class,
+        \Src\Agenda\Setting\Application\Providers\SettingServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -2,10 +2,16 @@
 
 namespace Src\Agenda\Setting\Application\Providers;
 
-use Src\Agenda\Token\Application\Providers\ServiceProvider;
+use Src\Shared\Application\Providers\ServiceProvider;
 
 class SettingServiceProvider extends ServiceProvider
 {
+
+    public function boot()
+    {
+        $this->registerRoutes(base_path('src/Agenda/Setting/Presentation/HTTP/Routes'));
+    }
+
     public function register()
     {
         $this->app->bind(

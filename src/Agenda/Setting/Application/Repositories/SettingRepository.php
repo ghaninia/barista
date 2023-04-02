@@ -3,25 +3,40 @@
 namespace Src\Agenda\Setting\Application\Repositories;
 
 use Src\Agenda\Setting\Application\DTO\CreateSettingDTO;
+use Src\Agenda\Setting\Application\DTO\FindSettingByKeyDTO;
 use Src\Agenda\Setting\Application\DTO\UpdateSettingDTO;
 use Src\Agenda\Setting\Application\Mappers\SettingMapper;
 use Src\Agenda\Setting\Domain\Entities\Constants\EnumKeySetting;
 use Src\Agenda\Setting\Domain\Entities\Setting;
+use Src\Agenda\Setting\Domain\Repositories\SettingRepositoryInterface;
 use Src\Agenda\Setting\Infrastructure\EloquentModels\SettingEloquentModel;
 
-class SettingRepository implements \Src\Agenda\Setting\Domain\Repositories\SettingRepositoryInterface
+class SettingRepository implements SettingRepositoryInterface
 {
-    public function updateByKey(UpdateSettingDTO $dto): Setting
+
+    /**
+     * @return Setting[]
+     */
+    public function getAll(): array
     {
-        $setting = SettingEloquentModel::query()
-            ->whereKey($dto->getKey()->value)
+        return SettingEloquentModel::query()
+            ->with(['updateBy', 'createBy'])
+            ->get()
+            ->map(function ($setting) {
+                return SettingMapper::fromEloquent($setting);
+            })
+            ->toArray();
+    }
+
+    public function updateByKey(UpdateSettingDTO $dto): bool
+    {
+        return SettingEloquentModel::query()
+            ->where('key', $dto->getKey())
             ->update([
-                'value' => $dto->getValue(),
+                'value' => serialize($dto->getValue()),
                 'update_by' => $dto->getUpdateBy()->id,
                 'updated_at' => new \DateTime()
             ]);
-
-        return SettingMapper::fromEloquent($setting);
     }
 
     public function create(CreateSettingDTO $dto): Setting
@@ -38,10 +53,12 @@ class SettingRepository implements \Src\Agenda\Setting\Domain\Repositories\Setti
         return SettingMapper::fromEloquent($setting);
     }
 
-    public function existsKey(EnumKeySetting $key): bool
+    public function findByKey(FindSettingByKeyDTO $dto): ?Setting
     {
-        return SettingEloquentModel::query()
-            ->whereType($key->value)
-            ->exists();
+        $setting = SettingEloquentModel::query()
+            ->where('key', $dto->getKey())
+            ->first();
+
+        return !!$setting? SettingMapper::fromEloquent($setting): null;
     }
 }

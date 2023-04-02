@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('update_by')->nullable()->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('create_by')->nullable()->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('update_by')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('create_by')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
 
             $table->string('key')->unique();
             $table->text('value')->nullable();

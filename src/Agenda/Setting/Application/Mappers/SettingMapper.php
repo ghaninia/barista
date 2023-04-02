@@ -2,8 +2,11 @@
 
 namespace Src\Agenda\Setting\Application\Mappers;
 
-use Src\Agenda\Setting\Domain\Entities\Setting;
 use Src\Agenda\Setting\Infrastructure\EloquentModels\SettingEloquentModel;
+use Src\Agenda\Setting\Domain\Entities\Constants\EnumKeySetting;
+use Src\Agenda\Setting\Domain\Entities\Setting;
+use Src\Agenda\User\Application\Mappers\UserMapper;
+use Src\Agenda\User\Domain\Entities\User\User;
 
 class SettingMapper
 {
@@ -11,9 +14,9 @@ class SettingMapper
     {
         return new Setting(
             $model->getId(),
-            $model->getCreateById(),
-            $model->getUpdateById(),
-            $model->getKey(),
+            UserMapper::fromEloquent($model->getCreateBy()),
+            UserMapper::fromEloquent($model->getUpdateBy()),
+            EnumKeySetting::from($model->getKey()),
             $model->getValue(),
             $model->getUpdatedAt(),
             $model->getCreatedAt()

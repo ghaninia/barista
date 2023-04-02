@@ -13,22 +13,20 @@ class UpdateValueByKeyUseCase implements CommandInterface
 {
     private SettingRepositoryInterface $repository;
     public function __construct(
-        private User $updateBy,
-        private EnumKeySetting $key,
-        private mixed $value
+        private readonly User           $updateBy,
+        private readonly EnumKeySetting $key,
+        private readonly mixed          $value
     ) {
-        $this->repository =  app()->make(SettingRepositoryInterface::class);
+        $this->repository =  app(SettingRepositoryInterface::class);
     }
 
-    public function execute() {
-
-        $setting = $this->repository->updateByKey(
+    public function execute()
+    {
+        return $this->repository->updateByKey(
             (new UpdateSettingDTO())
                 ->setKey($this->key)
                 ->setUpdateBy($this->updateBy)
                 ->setValue($this->value)
         );
-
-        return SettingMapper::fromEloquent($setting);
     }
 }
